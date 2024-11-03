@@ -1,20 +1,16 @@
-'use client'
-import React,{useState,useEffect} from 'react';
+import React from 'react';
 import axios from '@/utils/axios';
-import useSWR from 'swr';
 
-const fetcher = (url : string)=>axios(url).then((res)=>res.data.users);
-const about : React.FC = ()=>{
-    const {data,err} = useSWR('/',fetcher);
-
-    console.log(data);
-
+const about : React.FC = async ()=>{
+    const {data} = await axios.get();
+    console.log(data?.users);
     return (<div>
+
         <main>
             <h1>All users</h1>
             <ul>
             {
-                data && data.map((user)=>{
+                data &&data.users &&  data.users.map((user)=>{
                     return <li key={user.id}>{user.firstName}</li>;
                 })
             }
@@ -22,5 +18,6 @@ const about : React.FC = ()=>{
         </main>
     </div>);
 }
+
 
 export default about;
