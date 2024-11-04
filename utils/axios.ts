@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create(
     {
-        baseURL : "https://dummyjson.com/users",
+        baseURL : "https://blktracksvc.dtdc.com/dtdc-api/rest/JSONCnTrk/getTrackDetails",
     }
 )
 

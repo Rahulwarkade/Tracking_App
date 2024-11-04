@@ -1,4 +1,5 @@
-'use client'
+import './globals.css'
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -7,6 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning
+      
       >
         {children}
       </body>
